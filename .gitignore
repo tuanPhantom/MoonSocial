@@ -398,3 +398,91 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+## Template from community/DotNet/core.gitignore
+## Get latest from https://github.com/github/gitignore/blob/main/community/DotNet/core.gitignore 
+*.swp
+*.*~
+.DS_Store
+nupkg/
+
+# Visual Studio Code
+.vscode
+
+# Rider
+.idea
+
+# Build results
+build/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+################################## more
+# more
+################################## more
+
+# Visual Studio files
+.vscode/
+
+# IDE and Tools
+/.sonarqube
+
+# Rider files
+.idea/
+
+# OS-generated files
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# User-specific files
+*.orig
+
+# System files
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# macOS Finder files
+.AppleDouble
+__MACOSX/
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+[Ee]xported[Oo]bj/
+/*.userprefs
+/*.csproj
+/*.pidb
+/*.suo
+/*.sln*
+/*.user
+/*.unityproj
+/*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store*
+[Tt]humbs.db
+*Zone.Identifier
+*Zone.Identifier*
+*.Identifier
+
+# Fody - auto-generated XML schema
+/Properties
+/.config
+#FodyWeavers.xsd
+#/.config
+/Properties/Resources.Designer.cs
+/Properties/Resources.resx
+.editorconfig
+/.vscode
+/.sonarqube/conf
