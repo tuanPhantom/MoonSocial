@@ -459,10 +459,10 @@ __MACOSX/
 # ===================================== #
 [Ee]xported[Oo]bj/
 /*.userprefs
-/*.csproj
+#/*.csproj
 /*.pidb
 /*.suo
-/*.sln*
+#/*.sln*
 /*.user
 /*.unityproj
 /*.booproj
