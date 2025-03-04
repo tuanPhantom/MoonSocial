@@ -3,7 +3,9 @@
 namespace CQRS.Core.Infrastructure.Interfaces;
 
 /// <summary>
-/// an interface abstraction for accessing the event store business logic.
+/// An interface abstraction for accessing the event store business logic.
+/// The Event Store is used on the write or command side of a CQRS and Event Sourcing based application,
+/// and it is used to store data as a sequence of immutable events over time.
 /// </summary>
 public interface IEventStore
 {
