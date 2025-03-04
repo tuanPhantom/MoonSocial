@@ -6,9 +6,9 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 
 /* Register Service and Repository */
-builder.Services.AddPostDependencies();
 Common.ConfigureLogging(builder);
 builder.Host.UseSerilog();
+builder.Services.AddPostDependencies();
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
