@@ -10,7 +10,8 @@ namespace Post.Cmd.Infrastructure.Stores;
 /// The concrete event store for accessing the event store business logic.
 /// This class acts like a Service of Infrastructure layer. <br/>
 /// The Event Store is used on the write or command side of a CQRS and Event Sourcing based application,
-/// and it is used to store data as a sequence of immutable events over time.
+/// and it is used to store data as a sequence of immutable events over time. <br/>
+/// The Event Store uses <see cref="IEventStoreRepository"/> to write aggregates as events to the MongoDb (the writing database).
 /// </summary>
 public class EventStore : IEventStore
 {
@@ -24,6 +25,7 @@ public class EventStore : IEventStore
     /// <summary>
     /// This method versions events for given aggregate and for
     /// persisting new events to the event store via the event store repository.
+    /// In other words, this method writes aggregates as events to the MongoDb (the writing database).
     /// </summary>
     /// <param name="aggregateId">identifier of the aggregate</param>
     /// <param name="events">a collection of uncommited events</param>
@@ -66,6 +68,8 @@ public class EventStore : IEventStore
                     EventType = eventType,
                     EventData = @event,
                 };
+                
+                // write aggregates as events to the MongoDb (the writing database).
                 await _eventStoreRepository.SaveAsync(eventModel); // event store needs to be inserted in a strict order (version).
             }
         }
@@ -79,7 +83,7 @@ public class EventStore : IEventStore
     }
 
     /// <summary>
-    /// This method is  to retrieve all stored events
+    /// This method is to retrieve all stored events
     /// from the event store, which is needed for replaying the latest state of the aggregate.
     /// </summary>
     /// <param name="aggregateId">identifier of the aggregate</param>

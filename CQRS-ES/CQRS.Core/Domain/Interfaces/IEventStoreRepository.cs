@@ -8,12 +8,14 @@ namespace CQRS.Core.Domain.Interfaces;
 /// Now remember, in an event store, records are stored as a sequence of immutable events over time. <br/>
 /// Therefore, we are not going to implement an update or a delete method. We will only have a method
 /// that will allow us to persist new events to our event store as well as a method that allows us to
-/// return events for a given aggregate.
+/// return events for a given aggregate. <br/>
+/// In other words, this interface provides a method to write an event to MongoDb (the writing database).
 /// </summary>
 public interface IEventStoreRepository : IRepository
 {
     /// <summary>
     /// This method will be used to persist a new event to the event store.
+    /// In other words, this method writes event to MongoDb (the writing database)
     /// </summary>
     /// <param name="event">A new record that is going to be in the event store</param>
     /// <returns>A Task represents the persisting progress</returns>
