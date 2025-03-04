@@ -8,7 +8,9 @@ namespace Post.Cmd.Infrastructure.Stores;
 
 /// <summary>
 /// The concrete event store for accessing the event store business logic.
-/// This class acts like a Service of Infrastructure layer.
+/// This class acts like a Service of Infrastructure layer. <br/>
+/// The Event Store is used on the write or command side of a CQRS and Event Sourcing based application,
+/// and it is used to store data as a sequence of immutable events over time.
 /// </summary>
 public class EventStore : IEventStore
 {
@@ -35,6 +37,10 @@ public class EventStore : IEventStore
     {
         var eventStream = await _eventStoreRepository.FindByAggregateId(aggregateId);
 
+        // For the state of the Aggregate to be replayed/recreated correctly, it is important that the ordering of events is enforced by implementing event versioning.
+        // So that the events are stored in the Event Store in the correct order or sequence.
+        // Optimistic concurrency control is then used to ensure that only the expected event versions can be persisted in the event store.
+        // This is especially important if two or more client requests are made concurrently to alter the state of the aggregate.
         if (expectedVersion != -1 && eventStream[^1].Version != expectedVersion)
         {
             throw new ConcurencyException();
