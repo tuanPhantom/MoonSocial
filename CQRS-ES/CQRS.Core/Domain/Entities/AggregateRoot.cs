@@ -1,6 +1,6 @@
 ﻿using CQRS.Core.Events;
 
-namespace CQRS.Core.Domain;
+namespace CQRS.Core.Domain.Entities;
 
 /// <summary>
 /// The aggregate is an entity or group of entities that is always kept in a consistent state,
