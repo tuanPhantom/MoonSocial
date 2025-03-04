@@ -1,5 +1,6 @@
 ﻿using CQRS.Core.Commands;
 using CQRS.Core.Infrastructure;
+using CQRS.Core.Infrastructure.Interfaces;
 
 namespace Post.Cmd.Infrastructure.Dispatchers;
 

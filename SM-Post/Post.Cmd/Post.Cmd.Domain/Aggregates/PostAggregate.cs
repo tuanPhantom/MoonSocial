@@ -1,4 +1,5 @@
 ﻿using CQRS.Core.Domain;
+using CQRS.Core.Domain.Entities;
 using Post.Common.Events;
 
 namespace Post.Cmd.Domain.Aggregates;

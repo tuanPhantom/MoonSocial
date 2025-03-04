@@ -1,6 +1,6 @@
 ﻿using CQRS.Core.Commands;
 
-namespace CQRS.Core.Infrastructure;
+namespace CQRS.Core.Infrastructure.Interfaces;
 
 /// <summary>
 /// An interface for the mediator pattern that used to dispatch the command among the registered handlers.
